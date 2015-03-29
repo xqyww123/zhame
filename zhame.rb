@@ -61,7 +61,8 @@ class Zhame
     re = ''
     loop.each_with_index do |a,i|
       re = name[0, @lan.short_len + i]
-      break if @kdb[re].nil? or Base64.decode64 @kdb[re].split(',')[1] != code
+      ky = pylise(re).force_encoding 'utf-8'
+      break if @kdb[ky].nil? or Base64.decode64(@kdb[ky].split(',')[1]) == code
     end
     arg[:to_know] ? know(re, code, name) : [re, code]
   end
@@ -236,7 +237,7 @@ and my id : #{code.unpack('H*')[0]}/#{code.valid_bits}bits")
     else
       puts opts
   end
-rescue Exception => e
-  STDERR.puts "Error merged : #{e.message}"
+#rescue Exception => e
+#  STDERR.puts "Error merged : #{e.message}"
 end
 end
