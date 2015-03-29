@@ -1,0 +1,10 @@
+--- !ruby/struct:Zhame::Config
+# hash key of language
+lan_hash_key: "Xero's Memory Database"
+# known experience database address
+kdb_ad: kdb
+# address of pin ying db
+pydb_ad: pydb
+# language config path
+lan_path: lan.yml
+
